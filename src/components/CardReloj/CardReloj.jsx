@@ -29,7 +29,7 @@ const CardReloj = ({ data }) => {
         </Typography>
         <div>
           <Button variant="contained" color="primary" className="cardBtnColor">
-            Agregar
+            Info
           </Button>
         </div>
       </CardContent>

@@ -13,11 +13,13 @@ import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 //components  
 import ResponsiveNavigation from './components/ResponsiveNavigation/ResponsiveNavigation';
 
+//context
+import { RelojesProvider } from './context/RelojesContext';
 
 function App() {
 
   return (
-
+  <RelojesProvider>
     <Router>
       <div className='contenedorTodo'>
         <ResponsiveNavigation/>
@@ -34,6 +36,7 @@ function App() {
       
       </div>
     </Router>
+  </RelojesProvider>
   );
 }
 

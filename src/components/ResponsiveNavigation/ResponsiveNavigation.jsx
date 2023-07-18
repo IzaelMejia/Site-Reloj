@@ -3,7 +3,10 @@ import MenuPositions from "../MenuPositions/MenuPositions";
 import { Link } from "react-router-dom";
 import "./ResponsiveNavigation.css";
 
+import { RelojesContext } from "../../context/RelojesContext";
+
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useContext } from "react";
 
 const styles = {
   linkButton: {
@@ -16,6 +19,8 @@ const styles = {
 };
 
 const ResponsiveNavigation = () => {
+
+  const [items] = useContext(RelojesContext)
   return (
     <AppBar position="static" className="ResponsiveNavigation blackBackground">
 
@@ -34,6 +39,7 @@ const ResponsiveNavigation = () => {
           <Link to="/shop" style={styles.linkButton}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <ShoppingCartIcon />
+              {items.length}
             </div>
           </Link>
         </Toolbar>
