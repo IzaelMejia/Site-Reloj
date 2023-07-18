@@ -1,0 +1,16 @@
+.containerImg img{
+    width: 100%;
+}
+
+.cardBtnColor{
+    background-color: black !important;
+    color:#fff;
+}
+.cardBtnColor:hover{
+    background-color: black;
+    font-weight: 500;
+}
+
+.margenTop{
+    margin-top: 15px;
+}

@@ -1,0 +1,19 @@
+.header-container img{
+    object-fit: cover;
+    height: 600px;
+	width: 100%;
+}
+
+.header-container h1 {
+    position: absolute;
+    font-size: 3rem;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.767); /* Cambia el color del texto según tus necesidades */
+    text-align: center;
+  }
+
+  

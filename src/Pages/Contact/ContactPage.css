@@ -1,0 +1,9 @@
+.btnColor{
+    background-color: black !important;
+    color:#fff;
+    font-weight: 600;
+}
+.btnColor:hover{
+    background-color: black;
+    font-weight: 500;
+}

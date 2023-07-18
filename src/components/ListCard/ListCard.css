@@ -1,0 +1,16 @@
+
+.contenedorCard{
+    display: flex;
+    justify-content: center;
+  }
+  .relojes-grid{
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25;
+    
+  } 
+  
+  .contenedorCard a{
+    text-decoration: none;
+  }

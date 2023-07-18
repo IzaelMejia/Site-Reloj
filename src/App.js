@@ -1,24 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
 
+//Pages
+import HomePage from "./Pages/Home/HomePage"
+import AboutPage from "./Pages/About/AboutPage"
+import ContactPage from "./Pages/Contact/ContactPage"
+import ShopPage from './Pages/Shop/ShopPage';
+import RelojDetail from './Pages/RelojDetail/RelojDetail';
+import RelojMarcaPage from './Pages/RelojMarca/RelojMarcaPage';
+
+//router Dom 
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
+
+//components  
+import ResponsiveNavigation from './components/ResponsiveNavigation/ResponsiveNavigation';
+
+
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      <div className='contenedorTodo'>
+        <ResponsiveNavigation/>
+        
+        <Routes>
+          <Route path='/' element = {<HomePage/>} />
+          <Route path='/about' element = {<AboutPage/>} />
+          <Route path='/contact' element = {<ContactPage/>} />
+          <Route path='/shop' element = {<ShopPage/>} />
+          <Route path='/detail/:id' element = {<RelojDetail/>} />
+          
+          <Route path='/marcas/:name' element = {<RelojMarcaPage/>} />
+
+        </Routes>
+      
+      </div>
+    </Router>
   );
 }
 
