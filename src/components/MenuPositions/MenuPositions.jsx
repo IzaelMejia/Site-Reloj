@@ -1,10 +1,10 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
+
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const MenuPosition = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -56,24 +56,24 @@ const MenuPosition = () => {
         }}
       >
         <MenuItem>
-          <li style={styles.link}>
+          <Link to="/material/fibra" style={styles.link}>
             Rolex
-          </li>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <li style={styles.link}>
+          <Link to="/material/oro" style={styles.link}>
           Omega
-          </li >
+          </Link >
         </MenuItem>
         <MenuItem>
-          <li style={styles.link}>
+          <Link to="/material/plata" style={styles.link}>
             Richard Mille
-          </li>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <li style={styles.link}>
+          <Link to="/material/rolex" style={styles.link}>
             Vacheron Constantin
-          </li>
+          </Link>
         </MenuItem>
       </Menu>
     </div>

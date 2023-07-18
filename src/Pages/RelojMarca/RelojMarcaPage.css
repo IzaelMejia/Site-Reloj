@@ -1,11 +1,12 @@
 .DetailContainer{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    margin: 25px;
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25;
 }
 
 .detailCard{
-    display: flex;
-    text-align: center;
+        display: flex;
+        justify-content: center;
+      
 }

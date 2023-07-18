@@ -3,6 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, Button } from "@mui/material";
+
 import "./CardReloj.css";
 
 const CardReloj = ({ data }) => {
@@ -15,21 +16,23 @@ const CardReloj = ({ data }) => {
           image={data.img}
           alt="green iguana"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {data.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {data.price}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {data.description}
-          </Typography>
+      </CardActionArea>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {data.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {data.price}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {data.description}
+        </Typography>
+        <div>
           <Button variant="contained" color="primary" className="cardBtnColor">
             Agregar
           </Button>
-        </CardContent>
-      </CardActionArea>
+        </div>
+      </CardContent>
     </Card>
   );
 };

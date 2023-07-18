@@ -6,8 +6,7 @@ import AboutPage from "./Pages/About/AboutPage"
 import ContactPage from "./Pages/Contact/ContactPage"
 import ShopPage from './Pages/Shop/ShopPage';
 import RelojDetail from './Pages/RelojDetail/RelojDetail';
-import RelojMarcaPage from './Pages/RelojMarca/RelojMarcaPage';
-
+import RelojMarcaPage from "./Pages/RelojMarca/RelojMarcaPage"
 //router Dom 
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
@@ -29,8 +28,7 @@ function App() {
           <Route path='/contact' element = {<ContactPage/>} />
           <Route path='/shop' element = {<ShopPage/>} />
           <Route path='/detail/:id' element = {<RelojDetail/>} />
-          
-          <Route path='/marcas/:name' element = {<RelojMarcaPage/>} />
+          <Route path='/marca/:material' element = {<RelojMarcaPage/>} /> 
 
         </Routes>
       

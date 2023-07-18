@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import ButtonBase from '@mui/material/ButtonBase';
+  import ButtonBase from '@mui/material/ButtonBase';
 
 import "./AboutPage.css"
 import mision from "./mision.jpg";
