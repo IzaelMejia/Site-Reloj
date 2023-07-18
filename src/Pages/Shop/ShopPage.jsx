@@ -56,21 +56,21 @@ const ShopPage = () => {
       <h1 style={{ color: "black" }}>Shop</h1>
       <form className="FormContainer" onSubmit={onSubmit}>
         <TextField
-          placeholder="Name"
+          placeholder="Nombre"
           style={{ margin: 10, width: 400 }}
           name="name"
           value={values.name}
           onChange={handleOnChange}
         />
         <TextField
-          placeholder="Last Name"
+          placeholder="Apellido"
           style={{ margin: 10, width: 400 }}
           name="lastName"
           value={values.lastName}
           onChange={handleOnChange}
         />
         <TextField
-          placeholder="City"
+          placeholder="Ciudad"
           style={{ margin: 10, width: 400 }}
           name="city"
           value={values.city}
