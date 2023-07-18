@@ -26,7 +26,7 @@ const MostrarReloj = ({ data }) => {
       <div className='contenedorImg'>
         <img src={data.img} height={600} alt="Product" />
         <div className='contenedorText'>
-          <Typography>{data.name}</Typography>
+          <Typography >{data.name}</Typography>
           <Typography>{"$" + data.price + ".00"}</Typography>
           <Typography>{data.description}</Typography>
           <div className='contenedorBotones'>

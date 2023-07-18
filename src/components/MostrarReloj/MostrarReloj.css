@@ -1,13 +1,29 @@
-.contenedorImg{
-    display: flex;
-    background-color: rgb(0, 0, 0);
-    margin: 10px;
+.fondoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.contenedorText p{
-    color: #fff;
-    font-size: 30px;
-    display: flex;
+
+.contenedorImg {
+  position: relative;
+}
+
+.contenedorText {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.788);
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+}
+
+.contenedorBotones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .contenedorBotones{
