@@ -1,12 +1,9 @@
-.DetailContainer{
+.DetailContainerMarca{
     display: grid;
-    text-align: center;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 25;
 }
 
-.detailCard{
-        display: flex;
-        justify-content: center;
-      
+.DetailContainerMarca a{
+    text-decoration: none;
 }

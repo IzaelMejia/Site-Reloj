@@ -1,8 +1,10 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'; 
+
 // Firebase
-import { collection, query,getDocs} from "firebase/firestore"
+import { collection, query,getDocs, where} from "firebase/firestore"
 import {db} from "../../firebase/firebaseConfig"
 // import CardReloj from '../../components/CardReloj/CardReloj';
 import CardReloj from '../../components/CardReloj/CardReloj';
@@ -11,14 +13,14 @@ import "./RelojMarcaPage.css"
 
 const RelojMarcaPage = () => {
   // Desestrucutrar de un objeto que viene de useParams el id
-  const {material} = useParams()
+  const {name} = useParams()
   const [relojData, setRelojData ]=useState([])   // Creamos un estado llamado "reloj" inicializado como un array vacío.
 
-  console.log(material);
+  console.log(name);
   //console.log(id);
   useEffect(()=>{
     const getRelojes=async()=>{
-      const q= query(collection(db,"relojes")) //condicion
+      const q= query(collection(db,"relojes"),where("name","==",name)) //condicion
 
       const docs=[] 
       const querySnapshot= await getDocs(q)   
@@ -31,15 +33,16 @@ const RelojMarcaPage = () => {
   
     }
     getRelojes()
-  },[material]) //array dependencias
+  },[name]) //array dependencias
   //peticion firestore us ando la id del reloj
   return (
-    <div className='DetailContainer'>
+    <div className='DetailContainerMarca'>
       {relojData.map((data)=>{
         return (
           <div key={data.id} className='detailCard'>
-          <CardReloj data={data}/>
-          
+          <Link to={`/detail/${data.id}`}>
+            <CardReloj data={data}/>
+          </Link>
         </div> 
         )
       })}

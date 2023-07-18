@@ -56,22 +56,22 @@ const MenuPosition = () => {
         }}
       >
         <MenuItem>
-          <Link to="/material/fibra" style={styles.link}>
+          <Link to="/marca/rolex" style={styles.link}>
             Rolex
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/material/oro" style={styles.link}>
+          <Link to="/marca/omega" style={styles.link}>
           Omega
           </Link >
         </MenuItem>
         <MenuItem>
-          <Link to="/material/plata" style={styles.link}>
+          <Link to="/marca/richard mille" style={styles.link}>
             Richard Mille
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/material/rolex" style={styles.link}>
+          <Link to="/marca/vacheron constantin" style={styles.link}>
             Vacheron Constantin
           </Link>
         </MenuItem>

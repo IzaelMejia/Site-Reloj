@@ -1,0 +1,24 @@
+.FormContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 20px;
+	background-color: white;
+}
+
+.Textfield {
+	width: 400px;
+}
+
+.btnASendAction {
+	background: rgb(0, 0, 0);
+	color: white;
+	height: 54px;
+	width: 400px;
+	border-radius: 8px;
+	font-size: 18px;
+	border: none;
+	margin: 10px;
+}
+

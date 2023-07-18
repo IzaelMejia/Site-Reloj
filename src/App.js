@@ -28,7 +28,7 @@ function App() {
           <Route path='/contact' element = {<ContactPage/>} />
           <Route path='/shop' element = {<ShopPage/>} />
           <Route path='/detail/:id' element = {<RelojDetail/>} />
-          <Route path='/marca/:material' element = {<RelojMarcaPage/>} /> 
+          <Route path='/marca/:name' element = {<RelojMarcaPage/>} /> 
 
         </Routes>
       

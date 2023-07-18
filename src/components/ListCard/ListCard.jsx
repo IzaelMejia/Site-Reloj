@@ -8,10 +8,6 @@
   import { collection, query, getDocs } from "firebase/firestore";
 
 
-
-
-
-
   const ListCard = () => {
       const [relojes, setRelojes ]=useState([])   // Creamos un estado llamado "reloj" inicializado como un array vacío.
       
@@ -26,7 +22,6 @@
             docs.push({...doc.data(),id: doc.id})
           })
           setRelojes(docs)
-        
           }
           getRelojes()
         },[])
