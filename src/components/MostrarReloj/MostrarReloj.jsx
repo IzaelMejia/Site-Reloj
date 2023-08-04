@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Typography, Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import "./MostrarReloj.css";
 
 import { RelojesContext } from "../../context/RelojesContext";
@@ -8,15 +8,7 @@ const MostrarReloj = ({ data }) => {
   const [quantity, setQuantity] = useState(1);
   const [items, setItems] = useContext(RelojesContext);
 
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
+  console.log(setQuantity);
 
   const handleAgregar = () => {
     const itemExists = items.find(item => item.name === data.name);
@@ -52,9 +44,7 @@ const MostrarReloj = ({ data }) => {
           <Typography>{"$" + data.price + ".00"}</Typography>
           <Typography>{data.description}</Typography>
           <div className='contenedorBotones'>
-            <Button onClick={handleDecrement}>-</Button>
-            <Typography>{quantity}</Typography>
-            <Button onClick={handleIncrement}>+</Button>
+            
             <Button onClick={handleAgregar}>Agregar al carrito</Button>
           </div>
         </div>
