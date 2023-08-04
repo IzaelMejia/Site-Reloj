@@ -26,7 +26,27 @@ const ShopPage = () => {
   };
 
   const handleRemoveFromCart = (id) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    setItems((prevItems) => {
+      // Find the item with the given id
+      const itemToRemove = prevItems.find((item) => item.id === id);
+
+      // If the item is found and its quantity is greater than 1, decrease the quantity by 1
+      if (itemToRemove && itemToRemove.quantity > 1) {
+        return prevItems.map((item) => {
+          if (item.id === id) {
+            return {
+              ...item,
+              quantity: item.quantity - 1,
+              totalPrice: item.totalPrice - item.price,
+            };
+          }
+          return item;
+        });
+      }
+
+      // If the item quantity is 1 or the item is not found, remove the item from the cart
+      return prevItems.filter((item) => item.id !== id);
+    });
   };
 
   const handleClearCart = () => {
