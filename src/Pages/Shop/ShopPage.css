@@ -22,3 +22,104 @@
 	margin: 10px;
 }
 
+/* ShopPage.css */
+
+.containerShop {
+	text-align: center;
+	padding-top: 20px;
+  }
+  
+  .formContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 20px;
+  }
+  
+  .formContainer .MuiTextField-root {
+	margin: 10px;
+	width: 400px;
+  }
+  
+  .formContainer .btnASendAction {
+	background-color: #007bff;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	outline: none;
+  }
+  
+  .formContainer .btnASendAction:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+  }
+  
+  .tableContainer {
+	margin-top: 20px;
+  }
+  
+  .tableContainer h2 {
+	margin-bottom: 10px;
+  }
+  
+  .tableContainer table {
+	width: 100%;
+	border-collapse: collapse;
+  }
+  
+  .tableContainer table th,
+  .tableContainer table td {
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #ddd;
+  }
+  
+  .tableContainer table th {
+	background-color: #f2f2f2;
+  }
+  
+  .tableContainer table tr:hover {
+	background-color: #f5f5f5;
+  }
+  
+  .tableContainer table td img {
+	width: 50px;
+	height: 50px;
+  }
+  
+  .tableContainer table tr:last-child {
+	font-weight: bold;
+  }
+  
+  .tableContainer table td:last-child {
+	display: flex;
+	justify-content: space-around;
+  }
+  
+  .tableContainer table td button {
+	background-color: #007bff;
+	color: white;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	outline: none;
+  }
+  
+  .tableContainer table td button:last-child {
+	background-color: #dc3545;
+  }
+  
+  .messageSuccessContainer {
+	margin-top: 20px;
+	padding: 10px;
+	background-color: #d4edda;
+	border: 1px solid #c3e6cb;
+	border-radius: 5px;
+	color: #155724;
+  }
+  

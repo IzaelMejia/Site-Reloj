@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
 import "./ShopPage.css";
 
@@ -6,31 +6,33 @@ import { db } from "../../firebase/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import MessageSuccess from "../../components/MessageSuccess/MessageSuccess";
 
+import { RelojesContext } from "../../context/RelojesContext";
+
 const initialState = {
   name: "",
   lastName: "",
   city: "",
 };
 
-const styles = {
-  containerShop: {
-    textAlign: "center",
-    paddingTop: 20,
-  },
-};
-
 const ShopPage = () => {
   const [values, setValues] = useState(initialState);
   const [purchaseID, setPurchaseID] = useState(null);
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true); // Estado para habilitar o deshabilitar el botón de envío
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  const [items, setItems] = useContext(RelojesContext);
 
   const handleOnChange = (e) => {
     const { value, name } = e.target;
     setValues({ ...values, [name]: value });
   };
 
-  // Función de validación de campos
- 
+  const handleRemoveFromCart = (id) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
+  const handleClearCart = () => {
+    setItems([]);
+  };
+
   const validateFields = React.useCallback(() => {
     const { name, lastName, city } = values;
     return name.trim() !== "" && lastName.trim() !== "" && city.trim() !== "";
@@ -44,34 +46,62 @@ const ShopPage = () => {
     e.preventDefault();
 
     const docRef = await addDoc(collection(db, "compras"), {
+      items,
       values,
     });
 
     setPurchaseID(docRef.id);
     setValues(initialState);
+    setItems([]);
   };
 
+  const handleAddToCart = (data) => {
+    const itemExists = items.find((item) => item.name === data.name);
+
+    if (itemExists) {
+      const updatedItems = items.map((item) => {
+        if (item.name === data.name) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+            totalPrice: item.totalPrice + data.price,
+          };
+        }
+        return item;
+      });
+      setItems(updatedItems);
+    } else {
+      const newItem = {
+        ...data,
+        quantity: 1,
+        totalPrice: data.price,
+      };
+      setItems((prevItems) => [...prevItems, newItem]);
+    }
+  };
+
+  // Calcular cantidad total y suma total de precios
+  const totalItems = items.reduce((total, item) => total + item.quantity, 0);
+  const totalPrice = items.reduce((total, item) => total + item.totalPrice, 0);
+
   return (
-    <div style={styles.containerShop}>
+    <div className="containerShop">
       <h1 style={{ color: "black" }}>Shop</h1>
-      <form className="FormContainer" onSubmit={onSubmit}>
+      <form className="formContainer" onSubmit={onSubmit}>
         <TextField
           placeholder="Nombre"
-          style={{ margin: 10, width: 400 }}
           name="name"
           value={values.name}
           onChange={handleOnChange}
         />
         <TextField
           placeholder="Apellido"
-          style={{ margin: 10, width: 400 }}
           name="lastName"
           value={values.lastName}
           onChange={handleOnChange}
         />
         <TextField
           placeholder="Ciudad"
-          style={{ margin: 10, width: 400 }}
           name="city"
           value={values.city}
           onChange={handleOnChange}
@@ -81,7 +111,55 @@ const ShopPage = () => {
         </button>
       </form>
 
-      {purchaseID ? <MessageSuccess purchaseID={purchaseID} /> : null}
+      {purchaseID ? (
+        <div className="messageSuccessContainer">
+          <MessageSuccess purchaseID={purchaseID} />
+        </div>
+      ) : null}
+
+      <div className="tableContainer">
+        <h2>Carrito de compras</h2>
+        {items.length === 0 ? <p>El carrito está vacío.</p> : null}
+        {items.length > 0 && (
+          <table>
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <img src={item.img} alt="Product" />
+                  </td>
+                  <td>{item.name}</td>
+                  <td>{item.description}</td>
+                  <td>{item.quantity}</td>
+                  <td>{"$" + item.price + ".00"}</td>
+                  <td>
+                    <button onClick={() => handleAddToCart(item)}>Agregar</button>
+                    <button onClick={() => handleRemoveFromCart(item.id)}>Quitar</button>
+                  </td>
+                </tr>
+              ))}
+              <tr>
+                <td colSpan="3">Total</td>
+                <td>{totalItems}</td>
+                <td>{"$" + totalPrice + ".00"}</td>
+                <td>
+                  <button onClick={handleClearCart}>Vaciar carrito</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 };
